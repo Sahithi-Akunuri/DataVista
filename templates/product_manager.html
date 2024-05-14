@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Product Manager</title>
+    <style>
+        body {
+            background-image: url('pic3.jpg'); /* Gradient background */
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .flashcard {
+            position: relative;
+            width: 1200px; /* Card width */
+            height: 600px; /* Card height */
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            transition: transform 0.3s;
+            animation: pulse 2s infinite alternate;
+            display: flex;
+            justify-content: space-between; /* Space between the content */
+            align-items: center;
+            padding: 0 20px; /* Added padding */
+        }
+        .flashcard:hover {
+            transform: translateY(-5px);
+        }
+        .flashcard::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(to bottom right, #3c3b3b, #f7d200); /* Gradient background */
+            border-radius: 20px;
+            z-index: -1;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.05);
+            }
+        }
+        .container {
+            width: 90%; /* Adjusted width */
+            height: 100%; /* Full height */
+            overflow: hidden; /* Hide overflow content */
+            border-radius: 20px; /* Rounded corners */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        iframe {
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            border: none;
+            filter: brightness(95%) opacity(0.9) contrast(105%); /* Adjust brightness, opacity, and contrast */
+            transition: filter 0.3s; /* Smooth transition */
+        }
+        iframe:hover {
+            filter: brightness(100%) opacity(1) contrast(100%); /* Reset filter on hover */
+        }
+        .left-side, .right-side {
+            text-transform: uppercase; /* Convert text to uppercase */
+            font-weight: bold; /* Bold font */
+            font-size: 2rem; /* Font size */
+        }
+        .left-side {
+            margin-right: 20px; /* Push to the left */
+        }
+        .right-side {
+            margin-left: 20px; /* Push to the right */
+        }
+    </style>
+</head>
+<body>
+    <div class="flashcard">
+        <div class="left-side">P<span><br>r<br>o<br>d<br>u<br>c<br>t</span></div>
+        <div class="container">
+            <iframe title="pbfile" src="https://app.powerbi.com/reportEmbed?reportId=f3db8a40-1777-439a-952e-ad63725aa93f&autoAuth=true&ctid=d2c93562-02e0-41e0-9c5b-6b575c8129cd" frameborder="0" allowFullScreen="true"></iframe>
+        </div>
+        <div class="right-side">M<span><br>a<br>n<br>a<br>g<br>e<br>r</span></div>
+    </div>
+</body>
+</html>
