@@ -1,25 +1,25 @@
 from flask import Flask, render_template, request, redirect, url_for
 import pymysql
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 # Configure MySQL database connection
 db = pymysql.connect(
     host='datavista.c3m826cwe288.ap-south-1.rds.amazonaws.com',
     port=3306,
     user='admin',
-    password='AbhiAppu',
+    password='Abhiapplicationu',
     db='datavista',
     charset='utf8mb4',
     cursorclass=pymysql.cursors.DictCursor,
 )
 
 # Define routes
-@app.route('/')
+@application.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/login', methods=['GET', 'POST'])
+@application.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form['username']
@@ -54,25 +54,25 @@ def get_role_redirect(role):
     }
     return role_redirects.get(role, 'error')
 
-@app.route('/sales_manager')
+@application.route('/sales_manager')
 def sales_manager():
     return render_template('sales_manager.html')
 
-@app.route('/product_manager')
+@application.route('/product_manager')
 def product_manager():
     return render_template('product_manager.html')
 
-@app.route('/sales_team_member')
+@application.route('/sales_team_member')
 def sales_team_member():
     return render_template('sales_team_member.html')
 
-@app.route('/product_team_member')
+@application.route('/product_team_member')
 def product_team_member():
     return render_template('product_team_member.html')
 
-@app.route('/error')
+@application.route('/error')
 def error():
     return render_template('error.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    application.run(debug=True)
